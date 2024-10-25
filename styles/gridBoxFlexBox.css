@@ -1,0 +1,232 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Emilys Candy', sans-serif;
+    margin: 0;
+    font-size: 1.2rem;    
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.wrapper{
+    background-image: url(../images/pattern.png);
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    display: grid;
+    
+    grid-template-columns: auto;
+    
+    grid-template-rows: auto;
+    
+    grid-template-areas: 
+    
+    "header"
+    "nav"
+    "hero-banner"
+    "main"
+    "aside"
+    "footer";
+    
+    row-gap: 10px;
+}
+
+img{
+    width: 100%;
+    display: block;
+}
+
+a{
+    display: block;
+    text-decoration: none;
+}
+
+
+
+/*#region HEADER*/
+header{
+    grid-area: header;
+}
+
+
+header div{
+    width: 100%
+}
+
+header img{
+    max-width: 265px;    
+}
+/*#endregion HEADER*/
+
+
+
+/*#region NAV-MENU*/
+nav{
+    grid-area: nav;
+}
+
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a{
+    color: rgb(144, 170, 170);
+    height: 100%;
+    text-align: center;
+    margin-bottom: 0.1rem;
+    padding: 10px 0;
+    background-color: rgba(12, 68, 68, 0.87);
+}
+
+nav ul li a:hover{
+    background-color: rgb(35, 168, 168);
+    color: rgb(12, 68, 68);
+}
+/*#endregion NAV-MENU*/
+
+
+
+/*#region HEROBANNER*/
+.heroBanner{
+    grid-area: hero-banner;
+}
+
+.heroBanner div{
+    border: 0.2rem solid rgb(12, 68, 68);
+    border-radius: 10px;
+}
+
+.heroBanner img{
+    border-radius: 6px;
+}
+/*#endregion HEROBANNER*/
+
+
+
+/*#region MAIN*/
+main{
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+}
+
+.description{
+    padding: 0 30px;
+}
+/*#endregion MAIN*/
+
+
+/*#region ASIDE*/
+#aside{
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipes, .contacts{
+    /* overflow-y: scroll; */
+    /* height: 50%; */
+    padding: 30px;
+    border: 0.2rem solid rgb(12, 68, 68);
+    border-radius: 10px;
+    background-color: rgba(12, 68, 68, 0.76);
+}
+
+.recipes{
+    margin-bottom: 10px;
+}
+
+.recipes h2{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.recipes p{
+    margin: 0;
+}
+
+.contacts h3{
+    text-align: center;
+}
+
+.contacts a{
+    display: block;
+    color: rgb(145, 243, 243);
+    text-align: center;
+}
+
+.contacts a:hover{
+    color: aliceblue;
+}
+/*#endregion ASIDE*/
+
+
+/*#region FOOTER*/
+footer{
+    grid-area: footer;
+}
+/*#endregion FOOTER*/
+
+
+
+
+
+
+
+@media all and (min-width: 600px){
+    .wrapper{
+
+        grid-template-columns: 65% 35%;
+
+        grid-template-areas: 
+    
+        "header         header"
+        "nav            nav"
+        "hero-banner    hero-banner"
+        "main           aside"
+        "main           aside"
+        "footer         footer";
+    }
+}
+
+@media all and (min-width: 1200px){
+
+    .wrapper{
+
+        grid-template-columns: 60% 20% 20%;
+
+        grid-template-areas: 
+    
+        "header header header"
+        "nav nav nav"
+        "hero-banner hero-banner hero-banner"
+        "main aside aside"
+        "footer footer footer";
+
+    }
+
+    #aside{
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .recipes, .contacts{
+        margin: 0;
+        padding: 15px;
+        height: 100%;
+        flex: 1 1 0%;
+    }
+
+    .recipes h2{
+        text-align: center;
+    }
+}
